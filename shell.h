@@ -13,6 +13,11 @@
 #include <errno.h>
 #include <fcntl.h>
 
+#define READ_BUF_SIZE 1024
+#define WRITE_BUF_SIZE 1024
+#define BUF_FL -1
+
+
 /*checking function*/
 int at_oi(char *);
 int inter_active(info_t);
