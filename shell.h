@@ -46,7 +46,7 @@ char *strn_cat(char *, char *, int);
 /*functions4 to deal with strings*/
 char **str_two(char *, char *);
 char **str_twwo(char *, char);
-
+void _puts(char *);
 
 
 typedef struct passinformation
