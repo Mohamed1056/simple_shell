@@ -13,6 +13,11 @@
 #include <errno.h>
 #include <fcntl.h>
 
+#define READ_BUF_SIZE 1024
+#define WRITE_BUF_SIZE 1024
+#define BUF_FL -1
+
+
 /*checking function*/
 int at_oi(char *);
 int inter_active(info_t);
@@ -54,6 +59,32 @@ char *strn_cat(char *, char *, int);
 /*functions4 to deal with strings*/
 char **str_two(char *, char *);
 char **str_twwo(char *, char);
+void _puts(char *);
+
+
+typedef struct passinformation
+{
+	char *arg;
+	char **argv;
+	char *path;
+	int argc;
+	unsigned int line_count;
+	int err_num;
+	int linecount_flag;
+	char *fname;
+	list_t *env;
+	list_t *history;
+	list_t *alias;
+	char **environ;
+	int env_changed;
+	int status;
+
+	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
+	int cmd_buf_type; /* CMD_type ||, &&, ; */
+	int readfd;
+	int histcount;
+} info_t;
+
 
 /*functios to find the path*/
 char *Chars_Dup(char *, int, int);
@@ -61,3 +92,4 @@ int is_it_cmd(info_t *, char *);
 char *Path_Find(info_t *, char *, char *);
 
 
+int BuildHlist(info_t *information,char *buff, int linec);
