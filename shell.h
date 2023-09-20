@@ -150,3 +150,7 @@ char **list_to_strings(list_t *);
 size_t print_list(const list_t *);
 ssize_t get_node_index(list_t *, list_t *);
 list_t *nodestartswith(list_t *, char *, char);
+int readhistory(info_t *info);
+char gethistoryfile(info_t *info);
+int writehistory(info_t *info);
+int renumberhistory(info_t *info);
