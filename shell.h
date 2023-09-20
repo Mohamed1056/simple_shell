@@ -81,6 +81,14 @@ char **str_twwo(char *, char);
 void _puts(char *);
 
 
+typedef struct liststring
+{
+	int num;
+	char *str;
+	struct liststr *next;
+} list_t;
+
+
 typedef struct passinformation
 {
 	char *arg;
