@@ -99,3 +99,7 @@ typedef struct passinformation
 
 
 int BuildHlist(info_t *information,char *buff, int linec);
+/* getline */
+ssize_t get_input(info_t *);
+int _get_l(info_t *, char **, size_t *);
+void sigintHandler(int);
