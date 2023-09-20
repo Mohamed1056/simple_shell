@@ -81,6 +81,14 @@ char **str_twwo(char *, char);
 void _puts(char *);
 
 
+typedef struct liststring
+{
+	int num;
+	char *str;
+	struct liststr *next;
+} list_t;
+
+
 typedef struct passinformation
 {
 	char *arg;
@@ -120,3 +128,13 @@ int my_help(info_t *);
 int my_alias(info_t *);
 
 int BuildHlist(info_t *information,char *buff, int linec);
+/* getline */
+ssize_t get_input(info_t *);
+int get_l(info_t *, char **, size_t *);
+void sigintHandler(int);
+/* chains.c */
+int is_chain(info_t *, char *, size_t *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replacealias(info_t *);
+int replacevar(info_t *);
+int replacestring(char **, char *);
