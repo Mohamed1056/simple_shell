@@ -154,3 +154,9 @@ int readhistory(info_t *info);
 char gethistoryfile(info_t *info);
 int writehistory(info_t *info);
 int renumberhistory(info_t *info);
+/*loop*/
+int shloop(info_t *, char **);
+int findbuiltin(info_t *);
+void findcmd(info_t *);
+void fork_cmd(info_t *);
+
