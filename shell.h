@@ -13,6 +13,19 @@
 #include <errno.h>
 #include <fcntl.h>
 
+/*checking function*/
+int at_oi(char *);
+int inter_active(info_t);
+int is_it_alpha(int);
+int is_it_delim(char, char *);
+
+/*checking functions2*/
+int prnt_d(int, int);
+int err_atoi(char *);
+char *Convert_Number(long int, int, int);
+void prnt_err(info_t *, char *);
+void Remove_Comments(char *);
+
 /*functions to deal with strings*/
 int str_len(char *);
 char *str_cat(char *, char *);

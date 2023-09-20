@@ -19,7 +19,7 @@ char **str_two(char *str, char *ptr)
 	while (str[a] != '\0')
 	{
 		/*using if statment to check the code*/
-		if (!is_delim(str[a], ptr) && (is_delim(str[a + 1], ptr) || !str[a + 1]))
+		if (!is_it_delim(str[a], ptr) && (is_it_delim(str[a + 1], ptr) || !str[a + 1]))
 			num++;
 		a++;
 	}
@@ -31,10 +31,10 @@ char **str_two(char *str, char *ptr)
 		retyrn (NULL);
 	for (a = 0, b = 0; b < num; b++)
 	{
-		while (is_delim(str[a], ptr))
+		while (is_it_delim(str[a], ptr))
 			a++;
 		c = 0;
-		while (!is_delim(str[a + c], ptr) && str[a + c])
+		while (!is_it_delim(str[a + c], ptr) && str[a + c])
 			c++;
 		txt[b] = malloc(sizeof(char) * (c + 1));
 		/*checking if the memory allocated successfuly or not*/
