@@ -124,3 +124,9 @@ int BuildHlist(info_t *information,char *buff, int linec);
 ssize_t get_input(info_t *);
 int get_l(info_t *, char **, size_t *);
 void sigintHandler(int);
+/* chains.c */
+int is_chain(info_t *, char *, size_t *);
+void check_chain(info_t *, char *, size_t *, size_t, size_t);
+int replacealias(info_t *);
+int replacevar(info_t *);
+int replacestring(char **, char *);
