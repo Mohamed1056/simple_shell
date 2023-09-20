@@ -26,6 +26,14 @@ char *Convert_Number(long int, int, int);
 void prnt_err(info_t *, char *);
 void Remove_Comments(char *);
 
+/*functions dealing with memory*/
+void *re_allocate(void *, unsigned int, unsigned int);
+char *mem_set(char *, char, unsigned int);
+
+/*functions2 dealing with memory*/
+void fofree(char **);
+int befree(void **);
+
 /*functions to deal with strings*/
 int str_len(char *);
 char *str_cat(char *, char *);
@@ -46,5 +54,10 @@ char *strn_cat(char *, char *, int);
 /*functions4 to deal with strings*/
 char **str_two(char *, char *);
 char **str_twwo(char *, char);
+
+/*functios to find the path*/
+char *Chars_Dup(char *, int, int);
+int is_it_cmd(info_t *, char *);
+char *Path_Find(info_t *, char *, char *);
 
 
