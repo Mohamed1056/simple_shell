@@ -84,6 +84,10 @@ char **str_two(char *, char *);
 char **str_twwo(char *, char);
 void _puts(char *);
 
+int put_fd(char c, int fd);
+void e_puts(char *);
+int puts_fd(char *str, int fd);
+int e_putchar(char);
 
 typedef struct liststring
 {
