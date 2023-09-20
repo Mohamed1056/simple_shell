@@ -24,6 +24,10 @@
 #define CMD_AND		2
 #define CMD_CHAIN	3
 
+#define INFO_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
+
 
 /* for convert_number() */
 #define CONVERT_LOWERCASE	1
@@ -88,6 +92,11 @@ typedef struct liststring
 	struct liststr *next;
 } list_t;
 
+typedef struct builtin
+{
+	char *type;
+	int (*func)(info_t *);
+} builtin_table;
 
 typedef struct passinformation
 {
