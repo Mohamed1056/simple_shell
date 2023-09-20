@@ -16,6 +16,25 @@
 #define READ_BUF_SIZE 1024
 #define WRITE_BUF_SIZE 1024
 #define BUF_FL -1
+#define USEGETLINE 0
+
+
+#define CMD_NORM	0
+#define CMD_OR		1
+#define CMD_AND		2
+#define CMD_CHAIN	3
+
+
+/* for convert_number() */
+#define CONVERT_LOWERCASE	1
+#define CONVERT_UNSIGNED	2
+
+#define USESTRTOK 0
+
+#define HIST_FILE	"shell_history"
+#define HIST_MAX	4096
+
+extern char **environ;
 
 
 /*checking function*/
