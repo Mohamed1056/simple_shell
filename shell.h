@@ -118,6 +118,14 @@ char *Chars_Dup(char *, int, int);
 int is_it_cmd(info_t *, char *);
 char *Path_Find(info_t *, char *, char *);
 
+/*the built in emuliators*/
+int my_cd(info_t *);
+int my_exit(info_t *);
+int my_history(info_t *);
+
+/*the built in emuilators2*/
+int my_help(info_t *);
+int my_alias(info_t *);
 
 int BuildHlist(info_t *information,char *buff, int linec);
 /* getline */
