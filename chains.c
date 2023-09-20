@@ -10,29 +10,29 @@
  */
 int is_chain(info_t *info, char *buff, size_t *pos)
 {
-    size_t x = *pos;
+	size_t x = *pos;
 
-    if (buff[x] == '|' && buff[x + 1] == '|')
-    {
-        buff[x] = 0;
-        x++;
-        info->cmd_buf_type = CMD_OR;
-    }
-    else if (buff[x] == '&' && buff[x + 1] == '&')
-    {
-        buff[x] = 0;
-        x++;
-        info->cmd_buf_type = CMD_AND;
-    }
-    else if (buff[x] == ';')
-    {
-        buff[x] = 0;
-        info->cmd_buf_type = CMD_CHAIN;
-    }
-    else
-        return (0);
-    *pos = x;
-    return (1);
+	if (buff[x] == '|' && buff[x + 1] == '|')
+	{
+		buff[x] = 0;
+		x++;
+		info->cmd_buf_type = CMD_OR;
+	}
+	else if (buff[x] == '&' && buff[x + 1] == '&')
+	{
+		buff[x] = 0;
+		x++;
+		info->cmd_buf_type = CMD_AND;
+	}
+	else if (buff[x] == ';')
+	{
+		buff[x] = 0;
+		info->cmd_buf_type = CMD_CHAIN;
+	}
+	else
+		return (0);
+	*pos = x;
+	return (1);
 }
 
 /**
@@ -47,26 +47,26 @@ int is_chain(info_t *info, char *buff, size_t *pos)
  */
 void check_chain(info_t *info, char *buff, size_t *pos, size_t v, size_t len)
 {
-    size_t x = *pos;
+	size_t x = *pos;
 
-    if (info->cmd_buf_type == CMD_AND)
-    {
-        if (info->status)
-        {
-            buff[v] = 0;
-            x = len;
-        }
-    }
-    if (info->cmd_buf_type == CMD_OR)
-    {
-        if (!info->status)
-        {
-            buff[v] = 0;
-            x = len;
-        }
-    }
+	if (info->cmd_buf_type == CMD_AND)
+	{
+		if (info->status)
+		{
+			buff[v] = 0;
+			x = len;
+		}
+	}
+	if (info->cmd_buf_type == CMD_OR)
+	{
+		if (!info->status)
+		{
+			buff[v] = 0;
+			x = len;
+		}
+	}
 
-    *pos = v;
+	*pos = v;
 }
 
 /**
@@ -77,25 +77,25 @@ void check_chain(info_t *info, char *buff, size_t *pos, size_t v, size_t len)
  */
 int replacealias(info_t *info)
 {
-    int i;
-    list_t *node;
-    char *m;
+	int i;
+	list_t *node;
+	char *m;
 
-    for (i = 0; i < 10; i++)
-    {
-        node = nodestartswith(info->alias, info->argv[0], '=');
-        if (!node)
-            return (0);
-        free(info->argv[0]);
-        m = str_chr(node->str, '=');
-        if (!m)
-            return (0);
-        m = str_dup(m + 1);
-        if (!m)
-            return (0);
-        info->argv[0] = m;
-    }
-    return (1);
+	for (i = 0; i < 10; i++)
+	{
+		node = nodestartswith(info->alias, info->argv[0], '=');
+		if (!node)
+			return (0);
+		free(info->argv[0]);
+		m = str_chr(node->str, '=');
+		if (!m)
+			return (0);
+		m = str_dup(m + 1);
+		if (!m)
+			return (0);
+		info->argv[0] = m;
+	}
+	return (1);
 }
 
 /**
@@ -106,36 +106,36 @@ int replacealias(info_t *info)
  */
 int replacevar(info_t *info)
 {
-    int i = 0;
-    list_t *node;
+	int i = 0;
+	list_t *node;
 
-    for (i = 0; info->argv[i]; i++)
-    {
-        if (info->argv[i][0] != '$' || !info->argv[i][1])
-            continue;
+	for (i = 0; info->argv[i]; i++)
+	{
+		if (info->argv[i][0] != '$' || !info->argv[i][1])
+			continue;
 
-        if (!str_cmp(info->argv[i], "$?"))
-        {
-            replacestring(&(info->argv[i]),
-                          str_dup(convert_number(info->status, 10, 0)));
-            continue;
-        }
-        if (!str_cmp(info->argv[i], "$$"))
-        {
-            replacestring(&(info->argv[i]),
-                          str_dup(convert_number(getpid(), 10, 0)));
-            continue;
-        }
-        node = nodestartswith(info->env, &info->argv[i][1], '=');
-        if (node)
-        {
-            replacestring(&(info->argv[i]),
-                          str_dup(str_chr(node->str, '=') + 1));
-            continue;
-        }
-        replacestring(&info->argv[i], str_dup(""));
-    }
-    return (0);
+		if (!str_cmp(info->argv[i], "$?"))
+		{
+			replacestring(&(info->argv[i]),
+			str_dup(convert_number(info->status, 10, 0)));
+			continue;
+		}
+		if (!str_cmp(info->argv[i], "$$"))
+		{
+			replacestring(&(info->argv[i]),
+			str_dup(convert_number(getpid(), 10, 0)));
+			continue;
+		}
+		node = nodestartswith(info->env, &info->argv[i][1], '=');
+		if (node)
+		{
+			replacestring(&(info->argv[i]),
+			str_dup(str_chr(node->str, '=') + 1));
+			continue;
+		}
+		replacestring(&info->argv[i], str_dup(""));
+	}
+	return (0);
 }
 
 /**
@@ -146,7 +146,7 @@ int replacevar(info_t *info)
  * Return: 1 if replaced, 0 on failure */
 int replacestring(char **old, char *new)
 {
-    free(*old);
-    *old = new;
-    return (1);
+	free(*old);
+	*old = new;
+	return (1);
 }
