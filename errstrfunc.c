@@ -48,19 +48,19 @@ int e_putchar(char c)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int put_fd(char b, int fd)
+int put_fd(char txt, int fd)
 {
-    static int z;
-    static char buff[WRITE_BUF_SIZE];
-
-    if (b == BUF_FL || z >= WRITE_BUF_SIZE)
-    {
-        write(fd, buff, z);
-        z = 0;
-    }
-    if (b!= BUF_FL)
-        buff[z++] = b;
-    return (1);
+	static int poo;
+	static char buff[WRITE_BUF_SIZE];
+	/*after decleration of these variables*/
+	if (txt == BUF_FL || poo >= WRITE_BUF_SIZE)
+	{
+		write(fd, buff, poo);
+		poo = 0;
+	}
+	if (txt!= BUF_FL)
+		buff[poo++] = txt;
+	return (1);
 }
 
 /**
