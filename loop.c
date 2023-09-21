@@ -1,6 +1,6 @@
 #include "shell.h"
 
-/**	
+/**
  * findbuiltin - function to build in
  *
  * @ptr: the parameter & return info struct
@@ -31,7 +31,7 @@ int findbuiltin(info_t *ptr)
 			liv2 = liv[num].func(ptr);
 			break;
 		}
-		return (liv2);
+	return (liv2);
 }
 
 /**
@@ -44,7 +44,7 @@ void findcmd(info_t *myinfo)
 {
 	int a, b;
 	char *path_now = NULL;
-
+	/*after decleration*/
 	myinfo->path = myinfo->argv[0];
 	if (myinfo->linecount_flag == 1)
 	{
@@ -56,7 +56,7 @@ void findcmd(info_t *myinfo)
 			b++;
 	if (!b)
 		return;
-
+	/*making the variabes have values*/
 	path_now = Path_Find(myinfo, get_env(myinfo, "PATH="), myinfo->argv[0]);
 	if (path_now)
 	{
@@ -83,38 +83,39 @@ void findcmd(info_t *myinfo)
 
 int shloop(info_t *myinfo, char **auv)
 {
-        int builtinhere = 0;
+	int builtinhere = 0;
 	ssize_t res = 0;
 	/*after decleration*/
-        while (res != -1 && builtinhere != -2)
-        {
-                clearinf(myinfo);
-                if (inter_active(myinfo))
-                        puts_in("$ ");
-                e_putchar(BUF_FL);
-                res = get_input(myinfo);
-                if (res != -1)
-                {
-                        _setinf(myinfo, auv);
-                        builtinhere = findbuiltin(myinfo);
-                        if (builtinhere == -1)
-                                findcmd(myinfo);
-                }
-                else if (inter_active(myinfo))
-                        _putchar('\n');
-                _freeinf(myinfo, 0);
-        }
-        writehistory(myinfo);
-        _freeinf(myinfo, 1);
-        if (!inter_active(myinfo) && myinfo->status)
-                exit(myinfo->status);
-        if (builtinhere == -2)
-        {
-                if (myinfo->err_num == -1)
-                        exit(myinfo->status);
-                exit(myinfo->err_num);
-        }
-        return (builtinhere);
+	while (res != -1 && builtinhere != -2)
+	{
+		clearinf(myinfo);
+		if (inter_active(myinfo))
+			puts_in("$ ");
+		e_putchar(BUF_FL);
+		res = get_input(myinfo);
+		if (res != -1)
+		{
+			_setinf(myinfo, auv);
+			builtinhere = findbuiltin(myinfo);
+			if (builtinhere == -1)
+				findcmd(myinfo);
+		}
+		else if (inter_active(myinfo))
+			_putchar('\n');
+		_freeinf(myinfo, 0);
+	}
+	writehistory(myinfo);
+	_freeinf(myinfo, 1);
+	/*checking the interaction*/
+	if (!inter_active(myinfo) && myinfo->status)
+		exit(myinfo->status);
+	if (builtinhere == -2)
+	{
+		if (myinfo->err_num == -1)
+			exit(myinfo->status);
+		exit(myinfo->err_num);
+	}
+	return (builtinhere);
 }
 
 /**
@@ -130,7 +131,7 @@ void fork_cmd(info_t *ptr)
 	chld_pid = fork();
 	if (chld_pid == -1)
 	{
-
+		/*checking the errors*/
 		perror("Error:");
 		return;
 	}
