@@ -2,7 +2,7 @@
 
 /**
  * e_puts - prints an input string
- * @str: the string to be printed
+ * @string: the string to be printed
  *
  * Return: Nothing
  */
@@ -42,8 +42,8 @@ int e_putchar(char c)
 }
 
 /**
- * put_fd - writes the character c to given fd
- * @c: The character to print
+ * put_fd - writes the character txt to given fd
+ * @txt: The character to print
  * @fd: The filedescriptor to write to
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
@@ -64,20 +64,20 @@ int put_fd(char txt, int fd)
 }
 
 /**
- *puts_fd - prints an input string
- * @str: the string to be printed
+ * puts_fd - prints an input string
+ * @string: the string to be printed
  * @fd: the filedescriptor to write to
  * Return: the number of chars put
  */
 int puts_fd(char *string, int fd)
 {
-    int y = 0;
-
-    if (!string)
-        return (0);
-    while (*string)
-    {
-        y += put_fd(*string++, fd);
-    }
-    return (y);
+	int mny = 0;
+	/*after decleration of this*/
+	if (!string)
+		return (0);
+	while (*string)
+	{
+		mny += put_fd(*string++, fd);
+	}
+	return (mny);
 }
