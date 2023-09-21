@@ -9,7 +9,7 @@
 void e_puts(char *string)
 {
 	int s = 0;
-
+	/*after decleration of variables*/
 	if (!string)
 		return;
 	while (string[s] != '\0')
@@ -28,17 +28,17 @@ void e_puts(char *string)
  */
 int e_putchar(char c)
 {
-    static int x;
-    static char buff[WRITE_BUF_SIZE];
-
-    if (c == BUF_FL || x >= WRITE_BUF_SIZE)
-    {
-        write(2, buff, x);
-        x = 0;
-    }
-    if (c != BUF_FL)
-        buff[x++] = c;
-    return (1);
+	static int x;
+	static char buff[WRITE_BUF_SIZE];
+	/*after decleration of this variables*/
+	if (c == BUF_FL || x >= WRITE_BUF_SIZE)
+	{
+		write(2, buff, x);
+		x = 0;
+	}
+	if (c != BUF_FL)
+		buff[x++] = c;
+	return (1);
 }
 
 /**
