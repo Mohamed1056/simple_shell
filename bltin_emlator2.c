@@ -3,7 +3,7 @@
 /**
  * my_help - function to give help
  *
- * 2ptr: takes the input for the function
+ * @ptr: takes the input for the function
  *
  * Return: 0
 */
@@ -37,7 +37,7 @@ int unst_alis(info_t *ptr, char *ntr)
 	n = *u;
 	*u = 0;
 	r = delete_node_at_index(&(ptr->alias),
-		get_node_index(ptr->alias, node_starts_with(ptr->alias, ntr, -1)));
+		getnodeindex(ptr->alias, nodestartswith(ptr->alias, ntr, -1)));
 	*u = n;
 	return (r);
 }
@@ -85,7 +85,7 @@ int set_alis(info_t *ptr, char *msr)
 	if (!*++dm)
 		return (unst_alis(ptr, msr));
 	/*unset alias again*/
-	unst_ali(ptr, msr);
+	unst_alis(ptr, msr);
 	return (add_node_end(&(ptr->alias), msr, 0) == NULL);
 }
 
@@ -111,14 +111,14 @@ int my_alias(info_t *ptr)
 		}
 		return (0);
 	}
-	for (i = 1; ptr->argv[j]; j++)
+	for (j = 1; ptr->argv[j]; j++)
 	{
 		o = str_chr(ptr->argv[j], '=');
 		/*checking if o is true or not*/
 		if (o)
 			set_alis(ptr, ptr->argv[j]);
 		else
-			prnt_alis(node_starts_with(ptr->alias, ptr->argv[j], '='));
+			prnt_alis(nodestartswith(ptr->alias, ptr->argv[j], '='));
 	}
 
 	return (0);

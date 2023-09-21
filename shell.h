@@ -138,6 +138,7 @@ int my_history(info_t *);
 int my_help(info_t *);
 int my_alias(info_t *);
 
+
 int BuildHlist(info_t *information, char *buff, int linec);
 /* getline */
 ssize_t get_input(info_t *);
