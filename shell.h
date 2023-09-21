@@ -111,7 +111,7 @@ typedef struct passinformation
 	int readfd;
 	int histcount;
 } info_t;
-
+int shloop(info_t *, char **);
 /*checking functions2*/
 int prnt_d(int, int);
 int err_atoi(char *);
@@ -167,7 +167,6 @@ char gethistoryfile(info_t *info);
 int writehistory(info_t *info);
 int renumberhistory(info_t *info);
 /*loop*/
-int shloop(info_t *, char **);
 int findbuiltin(info_t *);
 void findcmd(info_t *);
 void fork_cmd(info_t *);
