@@ -96,7 +96,7 @@ int shloop(info_t *myinfo, char **auv)
                 if (res != -1)
                 {
                         _setinf(myinfo, auv);
-                        builtinhere = findbuiltin(info);
+                        builtinhere = findbuiltin(myinfo);
                         if (builtinhere == -1)
                                 findcmd(myinfo);
                 }
