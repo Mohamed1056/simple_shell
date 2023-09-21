@@ -36,7 +36,7 @@ void _setinf(info_t *myinfo, char **auv)
 				myinfo->argv[1] = NULL;
 			}
 		}
-		for (i = 0; myinfo->argv && info->argv[i]; i++)
+		for (i = 0; myinfo->argv && myinfo->argv[i]; i++)
 			;
 		myinfo->argc = i;
 
