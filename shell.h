@@ -43,7 +43,7 @@ extern char **environ;
 
 /*checking function*/
 int at_oi(char *);
-int inter_active(info_t);
+int inter_active(info_t *);
 int is_it_alpha(int);
 int is_it_delim(char, char *);
 
@@ -100,7 +100,7 @@ typedef struct builtin
 {
 	char *type;
 	int (*func)(info_t *);
-} builtin_table
+} builtin_table;
 
 typedef struct passinformation
 {
