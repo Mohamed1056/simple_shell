@@ -47,12 +47,6 @@ int inter_active(info_t *);
 int is_it_alpha(int);
 int is_it_delim(char, char *);
 
-/*checking functions2*/
-int prnt_d(int, int);
-int err_atoi(char *);
-char *Convert_Number(long int, int, int);
-void prnt_err(info_t *, char *);
-void Remove_Comments(char *);
 
 /*functions dealing with memory*/
 void *re_allocate(void *, unsigned int, unsigned int);
@@ -118,6 +112,13 @@ typedef struct passinformation
 	int readfd;
 	int histcount;
 } info_t;
+
+/*checking functions2*/
+int prnt_d(int, int);
+int err_atoi(char *);
+char *Convert_Number(long int, int, int);
+void prnt_err(info_t *, char *);
+void Remove_Comments(char *);
 
 typedef struct builtin
 {
