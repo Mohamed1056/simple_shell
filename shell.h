@@ -181,3 +181,4 @@ int my_setenv(info_t *);
 char **get_environ(info_t *);
 int unset_env(info_t *, char *);
 int set_env(info_t *, char *, char *);
+#endif
