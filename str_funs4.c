@@ -61,7 +61,7 @@ char **str_twwo(char *str, char z)
 		return (NULL);
 	for (a = 0; str[a] != '\0'; a++)
 		if ((str[a] != z && str[a + 1] == z) ||
-		    (str[a] != z && !str[i + 1]) || str[a + 1] == z)
+		    (str[a] != z && !str[a + 1]) || str[a + 1] == z)
 			num++;
 	if (num == 0)
 		return (NULL);
