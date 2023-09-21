@@ -172,4 +172,9 @@ int shloop(info_t *, char **);
 int findbuiltin(info_t *);
 void findcmd(info_t *);
 void fork_cmd(info_t *);
-
+/*env*/
+int my_env(info_t *);
+char *get_env(info_t *, const char *);
+int my_unsetenv(info_t *);
+int populate_env_list(info_t *);
+int my_setenv(info_t *);
