@@ -81,11 +81,11 @@ void e_puts(char *);
 int puts_fd(char *str, int fd);
 int e_putchar(char);
 
-typedef struct liststring
+typedef struct liststr
 {
 	int num;
 	char *str;
-	struct liststring *next;
+	struct liststr *next;
 } list_t;
 
 typedef struct passinformation

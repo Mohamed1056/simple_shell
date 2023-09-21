@@ -35,7 +35,7 @@ int is_it_cmd(info_t *str, char *ptr)
 	struct stat ft;
 	/*after decleration of the structure*/
 	(void)str;
-	if (!str || stat(str, &ft))
+	if (!ptr || stat(ptr, &ft))
 		return (0);
 	if (ft.st_mode & S_IFREG)
 		return (1);
