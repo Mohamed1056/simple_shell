@@ -103,7 +103,7 @@ ssize_t readbuff(info_t *info, char *buff, size_t *i)
 
 	if (*i)
 		return (0);
-	r = read(info->readfd, buff, READ_BUF_SIZE);
+	read = read(info->readfd, buff, READ_BUF_SIZE);
 	if (read >= 0)
 		*i = read;
 	return (read);
@@ -131,7 +131,7 @@ int get_l(info_t *information, char **ptr, size_t *length)
 	if (i == len)
 		i = len = 0;
 
-	read = readbuff(info, buff, &len);
+	read = readbuff(information, buff, &len);
 	if (read == -1 || (read == 0 && len == 0))
 		return (-1);
 
