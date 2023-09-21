@@ -16,34 +16,34 @@ int my_cd(info_t *stu)
 		puts_in("TODO: >>getcwd failure emsg here<<\n");
 	if (!stu->argv[1])
 	{
-		ptr = _getenv(stu, "HOME=");
+		ptr = get_env(stu, "HOME=");
 		if (!ptr)
-			ch = chdir((ptr = _getenv(stu, "PWD=")) ? ptr : "/");
+			ch = chdir((ptr = get_env(stu, "PWD=")) ? ptr : "/");
 		else
 			ch = chdir(ptr);
 	}
 	else if (str_cmp(stu->argv[1], "-") == 0)
 	{
-		if (!_getenv(stu, "OLDPWD="))
+		if (!get_env(stu, "OLDPWD="))
 		{
 			puts_in(str);
 			_putchar('\n');
 			return (1);
 		}
-		puts_in(_getenv(stu, "OLDPWD=")), _putchar('\n');
-		ch = chdir((ptr = _getenv(stu, "OLDPWD=")) ? ptr : "/");
+		puts_in(get_env(stu, "OLDPWD=")), _putchar('\n');
+		ch = chdir((ptr = get_env(stu, "OLDPWD=")) ? ptr : "/");
 	}
 	else
 		ch = chdir(stu->argv[1]);
 	if (ch == -1)
 	{
 		prnt_err(stu, "can't cd to ");
-		_eputs(stu->argv[1]), _eputchar('\n');
+		e_puts(stu->argv[1]), e_putchar('\n');
 	}
 	else
 	{
-		_setenv(stu, "OLDPWD", _getenv(stu, "PWD="));
-		_setenv(stu, "PWD", getcwd(example, 1024));
+		set_env(stu, "OLDPWD", get_env(stu, "PWD="));
+		set_env(stu, "PWD", getcwd(example, 1024));
 	}
 	return (0);
 }
@@ -65,8 +65,8 @@ int my_exit(info_t *ptr)
 		{
 			ptr->status = 2;
 			prnt_err(ptr, "Illegal number: ");
-			_eputs(ptr->argv[1]);
-			_eputchar('\n');
+			e_puts(ptr->argv[1]);
+			e_putchar('\n');
 			return (1);
 		}
 		/*after checking exhere variable*/
