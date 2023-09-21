@@ -45,7 +45,7 @@ char *str_chr(char *text, char letter)
 	while (*text != '\0')
 	{
 		if (*text == letter)
-			return (letter);
+			return (text);
 	text++;
 	}
 	return (NULL);

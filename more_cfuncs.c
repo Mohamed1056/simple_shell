@@ -43,7 +43,7 @@ int at_oi(char *string)
 
 int inter_active(info_t *MyInfo)
 {
-	return (isatty(STDIN_FILENO) && myInfo->readfd <= 2);
+	return (isatty(STDIN_FILENO) && MyInfo->readfd <= 2);
 }
 
 /**
