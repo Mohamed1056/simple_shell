@@ -47,17 +47,17 @@ char *str_cpy(char *str1, char *str2)
 
 int _putchar(char x)
 {
-	 static char buuf[WRITE_BUF_SIZE];
-	 static int n;
-	 /*using static to make the the variables retain their values*/
-	 if (x == BUF_FLUSH || n >= WRITE_BUF_SIZE)
-	 {
-		 write(1, buuf, n);
-		 n = 0;
-	 }
-	 if (x != BUF_FLUSH)
-		 buuf(n++) = x;
-	 return (1);
+	static char buuf[WRITE_BUF_SIZE];
+	static int n;
+	/*using static to make the the variables retain their values*/
+	if (x == BUF_FLUSH || n >= WRITE_BUF_SIZE)
+	{
+		write(1, buuf, n);
+		n = 0;
+	}
+	if (x != BUF_FLUSH)
+		buuf(n++) = x;
+	return (1);
 }
 
 /**

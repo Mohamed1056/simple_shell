@@ -99,7 +99,7 @@ int replacealias(info_t *info)
 }
 
 /**
- * replace_vars - replaces vars in the tokenized string
+ * replacevar - replaces vars in the tokenized string
  * @info: the parameter struct
  *
  * Return: 1 if replaced, 0 in failure
@@ -143,7 +143,8 @@ int replacevar(info_t *info)
  * @old: address of old string
  * @new: new string
  *
- * Return: 1 if replaced, 0 on failure */
+ * Return: 1 if replaced, 0 on failure
+*/
 int replacestring(char **old, char *new)
 {
 	free(*old);

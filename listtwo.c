@@ -8,14 +8,14 @@
  */
 size_t list_len(const list_t *h)
 {
-    size_t b = 0;
+	size_t b = 0;
 
-    while (h)
-    {
-        h = h->next;
-        b++;
-    }
-    return (b);
+	while (h)
+	{
+		h = h->next;
+		b++;
+	}
+	return (b);
 }
 
 /**
@@ -26,32 +26,31 @@ size_t list_len(const list_t *h)
  */
 char **list_to_strings(list_t *head)
 {
-    list_t *node = head;
-    size_t i = list_len(head), j;
-    char **strx;
-    char *str;
+	list_t *node = head;
+	size_t i = list_len(head), j;
+	char **strx;
+	char *str;
 
-    if (!head || !i)
-        return (NULL);
-    strx = malloc(sizeof(char *) * (i + 1));
-    if (!strx)
-        return (NULL);
-    for (i = 0; node; node = node->next, i++)
-    {
-        str = malloc(str_len(node->str) + 1);
-        if (!str)
-        {
-            for (j = 0; j < i; j++)
-                free(strx[j]);
-            free(strx);
-            return (NULL);
-        }
-
-        str = str_cpy(str, node->str);
-        strx[i] = str;
-    }
-    strs[i] = NULL;
-    return (strs);
+	if (!head || !i)
+		return (NULL);
+	strx = malloc(sizeof(char *) * (i + 1));
+	if (!strx)
+		return (NULL);
+	for (i = 0; node; node = node->next, i++)
+	{
+		str = malloc(str_len(node->str) + 1);
+		if (!str)
+		{
+			for (j = 0; j < i; j++)
+				free(strx[j]);
+			free(strx);
+			return (NULL);
+		}
+		str = str_cpy(str, node->str);
+		strx[i] = str;
+	}
+	strs[i] = NULL;
+	return (strs);
 }
 
 /**
@@ -62,19 +61,19 @@ char **list_to_strings(list_t *head)
  */
 size_t print_list(const list_t *h)
 {
-    size_t m = 0;
+	size_t m = 0;
 
-    while (h)
-    {
-        _puts(Convert_Number(h->num, 10, 0));
-        _putchar(':');
-        _putchar(' ');
-        _puts(h->str ? h->str : "(nil)");
-        _puts("\n");
-        h = h->next;
-        m++;
-    }
-    return (m);
+	while (h)
+	{
+		puts_in(Convert_Number(h->num, 10, 0));
+		_putchar(':');
+		_putchar(' ');
+		puts_in(h->str ? h->str : "(nil)");
+		puts_in("\n");
+		h = h->next;
+		m++;
+	}
+	return (m);
 }
 
 /**
@@ -87,16 +86,16 @@ size_t print_list(const list_t *h)
  */
 list_t *nodestartswith(list_t *node, char *prefix, char c)
 {
-    char *p = NULL;
-
-    while (node)
-    {
-        p = starts_with(node->str, prefix);
-        if (p && ((c == -1) || (*p == c)))
-            return (node);
-        node = node->next;
-    }
-    return (NULL);
+	char *p = NULL;
+	/*after declearion*/
+	while (node)
+	{
+		p = starts_with(node->str, prefix);
+		if (p && ((c == -1) || (*p == c)))
+			return (node);
+		node = node->next;
+	}
+	return (NULL);
 }
 
 /**
@@ -108,14 +107,14 @@ list_t *nodestartswith(list_t *node, char *prefix, char c)
  */
 ssize_t get_node_index(list_t *head, list_t *node)
 {
-    size_t n = 0;
+	size_t n = 0;
 
-    while (head)
-    {
-        if (head == node)
-            return (n);
-        head = head->next;
-        n++;
-    }
-    return (-1);
+	while (head)
+	{
+		if (head == node)
+			return (n);
+		head = head->next;
+		n++;
+	}
+	return (-1);
 }

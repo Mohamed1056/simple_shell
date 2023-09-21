@@ -22,7 +22,7 @@ void *re_allocate(void *mtr, unsigned int num, unsigned int bum)
 		return (mtr);
 	/*allocating the variable that we declared*/
 	ret = malloc(bum);
-	if(!ret)
+	if (!ret)
 		return (NULL);
 	num = num < bum ? num : bum;
 	while (num--)

@@ -13,15 +13,15 @@ int at_oi(char *string)
 	/*after decleration of all the variables*/
 	while (string[a] != '\0' && lol != 2)
 	{
-		if (string[a] = '-')
+		if (string[a] == '-')
 			sin *= -1;
 		if (string[a] >= '0' && string[a] <= '9')
 		{
 			lol = 1;
-			res *=10;
+			res *= 10;
 			res += (string[a] - '0');
 		}
-		else if(lol == 1)
+		else if (lol == 1)
 		{
 			lol = 2;
 		}
@@ -76,7 +76,7 @@ int is_it_delim(char car, char *str)
 	for (; *str; str++)
 	{
 		/*checking if the car is delim or not*/
-		if (*str = car)
+		if (*str == car)
 			return (1);
 	}
 	return (0);

@@ -91,7 +91,7 @@ char *Convert_Number(long int num, int a, int b)
 	if (!(b & CONVERT_UNSIGNED) && num < 0)
 	{
 		x = -num;
-		sin ='-';
+		sin = '-';
 	}
 	str = = b & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	pttr = &varr[99];

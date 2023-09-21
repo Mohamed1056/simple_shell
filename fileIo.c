@@ -113,7 +113,7 @@ int readhistory(info_t *info)
 			last = i + 1;
 		}
 	if (last != i)
-		 BuildHlist(info, buff + last, linecount++);
+		BuildHlist(info, buff + last, linecount++);
 	free(buff);
 	info->histcount = linecount;
 	while (info->histcount-- >= HIST_MAX)

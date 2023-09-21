@@ -12,23 +12,22 @@ char **str_two(char *str, char *ptr)
 	int a, b, c, d, num = 0;
 	char **txt;
 	/*after decleration of all variables*/
-	if (str == NULL || str[0] = 0)
+	if (str == NULL || str[0] == 0)
 		return (NULL);
 	if (!ptr)
 		ptr = " ";
 	while (str[a] != '\0')
 	{
-		/*using if statment to check the code*/
-		if (!is_it_delim(str[a], ptr) && (is_it_delim(str[a + 1], ptr) || !str[a + 1]))
+		if (!is_it_delim(str[a], ptr) &&
+				(is_it_delim(str[a + 1], ptr) || !str[a + 1]))
 			num++;
 		a++;
 	}
 	if (num == 0)
 		return (NULL);
 	txt = malloc(sizeof(char *) * (num + 1));
-	/*checking if the memory allocate or not*/
 	if (!txt)
-		retyrn (NULL);
+		return (NULL);
 	for (a = 0, b = 0; b < num; b++)
 	{
 		while (is_it_delim(str[a], ptr))
@@ -37,7 +36,6 @@ char **str_two(char *str, char *ptr)
 		while (!is_it_delim(str[a + c], ptr) && str[a + c])
 			c++;
 		txt[b] = malloc(sizeof(char) * (c + 1));
-		/*checking if the memory allocated successfuly or not*/
 		if (!txt[b])
 		{
 			for (c = 0; c < b; c++)

@@ -12,15 +12,13 @@ int my_cd(info_t *stu)
 	char *str, *ptr, example[1024];
 	/*after decleration of all variables*/
 	str = getcwd(example, 1024);
-	/*checking the variable*/
 	if (!str)
 		puts_in("TODO: >>getcwd failure emsg here<<\n");
 	if (!stu->argv[1])
 	{
 		ptr = _getenv(stu, "HOME=");
 		if (!ptr)
-			ch = 
-				chdir((ptr = _getenv(stu, "PWD=")) ? ptr : "/");
+			ch = chdir((ptr = _getenv(stu, "PWD=")) ? ptr : "/");
 		else
 			ch = chdir(ptr);
 	}
@@ -33,8 +31,7 @@ int my_cd(info_t *stu)
 			return (1);
 		}
 		puts_in(_getenv(stu, "OLDPWD=")), _putchar('\n');
-		ch = /*This is the second comment here*/
-			chdir((ptr = _getenv(stu, "OLDPWD=")) ? ptr : "/");
+		ch = chdir((ptr = _getenv(stu, "OLDPWD=")) ? ptr : "/");
 	}
 	else
 		ch = chdir(stu->argv[1]);

@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * input_buff 
- * @info: parameter struct
+ * input_buff - function to write buff
+ * @information: parameter struct
  * @buff: address of buffer
  * @len: address of len var
  *
@@ -25,21 +25,21 @@ ssize_t input_buff(info_t *information, char **buff, size_t *len)
 		read = get_l(information, buff, &len_p);
 	#endif
 		if (read > 0)
+		{
+			if ((*buff)[read - 1] == '\n')
 			{
-				if ((*buff)[read - 1] == '\n')
-					{
-						(*buff)[read - 1] = '\0'; /* remove trailing newline */
-						read--;
-					}
-				information->linecount_flag = 1;
-				Remove_Comments(*buff);
-				BuildHlist(information, *buff, information->histcount++);
-
-				{
-					*len = read;
-					information->cmd_buf = buff;
-				}
+				(*buff)[read - 1] = '\0'; /* remove trailing newline */
+				read--;
 			}
+			information->linecount_flag = 1;
+			Remove_Comments(*buff);
+			BuildHlist(information, *buff, information->histcount++);
+
+			{
+				*len = read;
+				information->cmd_buf = buff;
+			}
+		}
 	}
 	return (read);
 }
@@ -60,7 +60,7 @@ ssize_t get_input(info_t *info)
 	_putchar(BUF_FL);
 	read = input_buff(info, &buff, &len);
 	if (read == -1) /* EOF */
-        	return (-1);
+		return (-1);
 	if (len) /* we have commands left in the chain buffer */
 	{
 		j = i;        /* init new iterator to current buf position */
@@ -90,9 +90,9 @@ ssize_t get_input(info_t *info)
 }
 
 /**
- * read_buf - reads a buffer
+ * readbuff - reads a buffer
  * @info: parameter struct
- * @buf: buffer
+ * @buff: buffer
  * @i: size
  *
  * Return: raaed
@@ -111,7 +111,7 @@ ssize_t readbuff(info_t *info, char *buff, size_t *i)
 
 /**
  * get_l - gets the next line of input from STDIN
- * @info: parameter struct
+ * @information: parameter struct
  * @ptr: address of pointer to buffer, preallocated or NULL
  * @length: size of preallocated ptr buffer if not NULL
  *
@@ -124,7 +124,7 @@ int get_l(info_t *information, char **ptr, size_t *length)
 	size_t k;
 	ssize_t read = 0, s = 0;
 	char *p = NULL, *new_p = NULL, *c;
-	
+	/*after decleration*/
 	p = *ptr;
 	if (p && length)
 		s = *length;
@@ -157,7 +157,7 @@ int get_l(info_t *information, char **ptr, size_t *length)
 }
 
 /**
- * siginHandle
+ * sigintHandler - function to handle text
  * @sig_num: the signal number
  *
  * Return: void
