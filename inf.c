@@ -15,33 +15,33 @@ void clearinf(info_t *myinfo)
 
 /**
  * _setinfo - initializes info_t struct
- * @info: struct address
- * @av: argument vector
+ * @myinfo: struct address
+ * @auv: argument vector
  */
-void _setinf(info_t *info, char **av)
+void _setinf(info_t *myinfo, char **auv)
 {
-    int i = 0;
+	int i = 0;
+	/*after decleration of xyz*/
+	myinfo->fname = av[0];
+	/*checking the code*/
+	if (myinfo->arg)
+	{
+		myinfo->argv = str_two(myinfo->arg, " \t");
+		if (!myinfo->argv)
+		{
+			myinfo->argv = malloc(sizeof(char *) * 2);
+			if (myinfo->argv)
+			{
+				myinfo->argv[0] = str_dup(myinfo->arg);
+				myinfo->argv[1] = NULL;
+			}
+		}
+		for (i = 0; info->argv && info->argv[i]; i++)
+			;
+		myinfo->argc = i;
 
-    info->fname = av[0];
-    if (info->arg)
-    {
-        info->argv = str_two(info->arg, " \t");
-        if (!info->argv)
-        {
-
-            info->argv = malloc(sizeof(char *) * 2);
-            if (info->argv)
-            {
-                info->argv[0] = str_dup(info->arg);
-                info->argv[1] = NULL;
-            }
-        }
-        for (i = 0; info->argv && info->argv[i]; i++)
-            ;
-        info->argc = i;
-
-        replacealias(info);
-        replacevar(info);
+		replacealias(myinfo);
+		replacevar(myinfo);
     }
 }
 
