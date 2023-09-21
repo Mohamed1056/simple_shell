@@ -45,7 +45,7 @@ void findcmd(info_t *myinfo)
 	int a, b;
 	char *path_now = NULL;
 
-	myinfo->path_now = myinfo->argv[0];
+	myinfo->path = myinfo->argv[0];
 	if (myinfo->linecount_flag == 1)
 	{
 		myinfo->line_count++;
@@ -60,7 +60,7 @@ void findcmd(info_t *myinfo)
 	path_now = Path_Find(myinfo, get_env(myinfo, "PATH="), myinfo->argv[0]);
 	if (path_now)
 	{
-		myinfo->path_now = path_now;
+		myinfo->path = path_now;
 		fork_cmd(myinfo);
 	}
 	else
@@ -70,7 +70,7 @@ void findcmd(info_t *myinfo)
 		else if (*(myinfo->arg) != '\n')
 		{
 			myinfo->status = 127;
-			prnt_err(info, "not found\n");
+			prnt_err(myinfo, "not found\n");
 		}
 	}
 }
