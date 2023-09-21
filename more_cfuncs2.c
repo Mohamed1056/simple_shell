@@ -14,7 +14,7 @@ int prnt_d(int n, int fd)
 	unsigned int abs_val, crnt;
 	/*after decleration of the variables*/
 	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
+		__putchar = e_putchar;
 	/*checking the code now*/
 	if (n < 0)
 	{
@@ -82,7 +82,7 @@ int err_atoi(char *str)
 
 char *Convert_Number(long int num, int a, int b)
 {
-	static char var[100];
+	static char var[50];
 	static char *str;
 	char *pttr;
 	char sin = 0;
@@ -94,7 +94,7 @@ char *Convert_Number(long int num, int a, int b)
 		sin = '-';
 	}
 	str = = b & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	pttr = &varr[99];
+	pttr = &var[49];
 	*pttr = '\0';
 	/*while loop*/
 	while (x != 0)
@@ -116,14 +116,14 @@ char *Convert_Number(long int num, int a, int b)
 
 void prnt_err(info_t *MyInfo, char *mastr)
 {
-	_eputs(MyInfo->fname);
-	_eputs(": ");
+	e_puts(MyInfo->fname);
+	e_puts(": ");
 	/*printing the code*/
-	print_d(MyInfo->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(MyInfo->argv[0]);
-	_eputs(": ");
-	_eputs(mastr);
+	prnt_d(MyInfo->line_count, STDERR_FILENO);
+	e_puts(": ");
+	e_puts(MyInfo->argv[0]);
+	e_puts(": ");
+	e_puts(mastr);
 }
 
 /**

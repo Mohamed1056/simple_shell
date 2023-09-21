@@ -26,7 +26,7 @@ void *re_allocate(void *mtr, unsigned int num, unsigned int bum)
 		return (NULL);
 	num = num < bum ? num : bum;
 	while (num--)
-		p[num] = ((char *)mtr)[num];
+		ret[num] = ((char *)mtr)[num];
 	free(mtr);
 	return (ret);
 }
