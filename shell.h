@@ -90,16 +90,6 @@ void e_puts(char *);
 int puts_fd(char *str, int fd);
 int e_putchar(char);
 
-<<<<<<< HEAD
-typedef struct liststr
-{
-	int num;
-	char *str;
-	struct liststr *next;
-} list_t;
-=======
-
->>>>>>> 79beb618dedbe3ec595f9df076b3d63893d867e8
 
 typedef struct passinformation
 {
