@@ -29,7 +29,7 @@ int main(int ac, char **av)
 				e_puts(": 0: Can't open ");
 				e_puts(av[1]);
 				e_putchar('\n');
-				e_putchar(BUF_FLUSH);
+				e_putchar(BUF_FL);
 				exit(127);
 			}
 			return (EXIT_FAILURE);
