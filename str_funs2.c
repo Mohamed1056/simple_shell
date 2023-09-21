@@ -56,7 +56,7 @@ int _putchar(char x)
 		n = 0;
 	}
 	if (x != BUF_FL)
-		buuf(n++) = x;
+		buuf[n++] = x;
 	return (1);
 }
 
