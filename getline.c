@@ -99,14 +99,14 @@ ssize_t get_input(info_t *info)
  */
 ssize_t readbuff(info_t *info, char *buff, size_t *i)
 {
-	ssize_t read = 0;
+	ssize_t raed = 0;
 
 	if (*i)
 		return (0);
-	read = read(info->readfd, buff, READ_BUF_SIZE);
-	if (read >= 0)
-		*i = read;
-	return (read);
+	raed = read(info->readfd, buff, READ_BUF_SIZE);
+	if (raed >= 0)
+		*i = raed;
+	return (raed);
 }
 
 /**
