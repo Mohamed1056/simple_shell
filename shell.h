@@ -96,12 +96,6 @@ typedef struct liststring
 	struct liststr *next;
 } list_t;
 
-typedef struct builtin
-{
-	char *type;
-	int (*func)(info_t *);
-} builtin_table;
-
 typedef struct passinformation
 {
 	char *arg;
@@ -125,6 +119,11 @@ typedef struct passinformation
 	int histcount;
 } info_t;
 
+typedef struct builtin
+{
+        char *type;
+        int (*func)(info_t *);
+} builtin_table;
 
 /*functios to find the path*/
 char *Chars_Dup(char *, int, int);
