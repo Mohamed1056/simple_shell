@@ -1,19 +1,20 @@
 #include "shell.h"
 
 /**
- * clear_info - initializes info_t struct
- * @info: struct address
+ * clear_nfo - initializes info_t struct
+ * @myinfo: struct address
  */
-void clearinf(info_t *info)
+void clearinf(info_t *myinfo)
 {
-    info->arg = NULL;
-    info->argv = NULL;
-    info->path = NULL;
-    info->argc = 0;
+	/*no variables to declare here*/
+	myinfo->arg = NULL;
+	myinfo->argv = NULL;
+	myinfo->path = NULL;
+	myinfo->argc = 0;
 }
 
 /**
- * set_info - initializes info_t struct
+ * _setinfo - initializes info_t struct
  * @info: struct address
  * @av: argument vector
  */
