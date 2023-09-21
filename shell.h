@@ -1,5 +1,5 @@
 #ifndef SHELL_H
-11;rgb:0000/0000/0000#define SHELL_H
+#define SHELL_H
 
 /*inserting required header files*/
 #include <stdio.h>
@@ -81,18 +81,7 @@ void e_puts(char *);
 int puts_fd(char *str, int fd);
 int e_putchar(char);
 
-/**
- * struct liststring - singly linked list
- * @num: the number field
- * @str: a string
- * @next: points to the next node
- */
-typedef struct liststring
-{
-	int num;
-	char *str;
-  struct liststring *next;
-} list_t;
+
 
 typedef struct passinformation
 {
