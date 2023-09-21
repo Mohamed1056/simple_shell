@@ -13,7 +13,7 @@
 int findbuiltin(info_t *ptr)
 {
 	int num, liv2 = -1;
-	builtintable liv[] = {
+	builtin_table liv[] = {
 		{"exit", my_exit},
 		{"env", my_env},
 		{"help", my_help},
