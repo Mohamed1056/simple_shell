@@ -185,4 +185,6 @@ int set_env(info_t *, char *, char *);
 
 /*information*/
 void clearinf(info_t *);
+void _freeinf(info_t *, int);
+void _setinf(info_t *, char **);
 #endif
