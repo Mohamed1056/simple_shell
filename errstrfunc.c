@@ -1,22 +1,22 @@
 #include "shell.h"
 
 /**
- *e_puts - prints an input string
+ * e_puts - prints an input string
  * @str: the string to be printed
  *
  * Return: Nothing
  */
 void e_puts(char *string)
 {
-    int s = 0;
+	int s = 0;
 
-    if (!string)
-        return;
-    while (string[s] != '\0')
-    {
-        e_putchar(string[s]);
-        s++;
-    }
+	if (!string)
+		return;
+	while (string[s] != '\0')
+	{
+		e_putchar(string[s]);
+		s++;
+	}
 }
 
 /**
