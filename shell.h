@@ -43,7 +43,6 @@ extern char **environ;
 
 /*checking function*/
 int at_oi(char *);
-int inter_active(info_t *);
 int is_it_alpha(int);
 int is_it_delim(char, char *);
 
@@ -119,7 +118,7 @@ int err_atoi(char *);
 char *Convert_Number(long int, int, int);
 void prnt_err(info_t *, char *);
 void Remove_Comments(char *);
-
+int inter_active(info_t *);
 typedef struct builtin
 {
         char *type;
