@@ -40,6 +40,15 @@
 extern char **environ;
 
 
+
+// linked lists 
+typedef struct liststring
+{
+	int num;
+	char *str;
+	struct liststring *next;
+} list_t;
+
 /*checking function*/
 int at_oi(char *);
 int is_it_alpha(int);
@@ -158,7 +167,7 @@ size_t print_list(const list_t *);
 ssize_t get_node_index(list_t *, list_t *);
 list_t *nodestartswith(list_t *, char *, char);
 int readhistory(info_t *info);
-char gethistoryfile(info_t *info);
+char *gethistoryfile(info_t *info);
 int writehistory(info_t *info);
 int renumberhistory(info_t *info);
 /*loop*/
