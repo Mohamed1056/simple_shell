@@ -22,7 +22,7 @@ void _setinf(info_t *myinfo, char **auv)
 {
 	int i = 0;
 	/*after decleration of xyz*/
-	myinfo->fname = av[0];
+	myinfo->fname = auv[0];
 	/*checking the code*/
 	if (myinfo->arg)
 	{
@@ -36,7 +36,7 @@ void _setinf(info_t *myinfo, char **auv)
 				myinfo->argv[1] = NULL;
 			}
 		}
-		for (i = 0; info->argv && info->argv[i]; i++)
+		for (i = 0; myinfo->argv && info->argv[i]; i++)
 			;
 		myinfo->argc = i;
 
@@ -58,7 +58,7 @@ void _freeinf(info_t *myinfo, int lol)
 	if (lol)
 	{
 		if (!myinfo->cmd_buf)
-			free(info->arg);
+			free(myinfo->arg);
 		if (myinfo->env)
 			free_list(&(myinfo->env));
 		if (myinfo->history)
