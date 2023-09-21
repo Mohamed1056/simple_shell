@@ -37,7 +37,7 @@ int unst_alis(info_t *ptr, char *ntr)
 	n = *u;
 	*u = 0;
 	r = delete_node_at_index(&(ptr->alias),
-		getnodeindex(ptr->alias, nodestartswith(ptr->alias, ntr, -1)));
+		get_node_index(ptr->alias, nodestartswith(ptr->alias, ntr, -1)));
 	*u = n;
 	return (r);
 }

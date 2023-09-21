@@ -85,7 +85,7 @@ typedef struct liststring
 {
 	int num;
 	char *str;
-	struct liststr *next;
+	struct liststring *next;
 } list_t;
 
 typedef struct passinformation
