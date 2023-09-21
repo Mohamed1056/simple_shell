@@ -97,17 +97,17 @@ int set_alis(info_t *ptr, char *msr)
 
 int my_alias(info_t *ptr)
 {
-	char *o = NULL;
-	list_t *stev = NULL;
+char *o = NULL;
 	int j = 0;
+	list_t *step = NULL;
 	/*after decleration*/
 	if (ptr->argc == 1)
 	{
-		stev = ptr->alias;
-		while (stev)
+		step = ptr->alias;
+		while (step)
 		{
-			prnt_alis(stev);
-			stev = stev->next;
+			prnt_alis(step);
+			step = step->next;
 		}
 		return (0);
 	}

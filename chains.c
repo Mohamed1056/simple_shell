@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * is_chain - test if current char in buffer is a chain delimeter
+11;rgb:0000/0000/0000* is_chain - test if current char in buffer is a chain delimeter
  * @info: the parameter struct
  * @buff: the char buffer
  * @pos: address of current position in buf
@@ -117,13 +117,13 @@ int replacevar(info_t *info)
 		if (!str_cmp(info->argv[i], "$?"))
 		{
 			replacestring(&(info->argv[i]),
-			str_dup(convert_number(info->status, 10, 0)));
+			str_dup(Convert_Number(info->status, 10, 0)));
 			continue;
 		}
 		if (!str_cmp(info->argv[i], "$$"))
 		{
 			replacestring(&(info->argv[i]),
-			str_dup(convert_number(getpid(), 10, 0)));
+			str_dup(Convert_Number(getpid(), 10, 0)));
 			continue;
 		}
 		node = nodestartswith(info->env, &info->argv[i][1], '=');
