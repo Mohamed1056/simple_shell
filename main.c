@@ -1,11 +1,14 @@
-#include "shell.h"
 
+
+
+#include "shell.h"
 /**
  * mai
  * @ac: arg count
  * @av: arg vector
  * Return: 0 on success,1 if an error happened
  */
+
 int main(int ac, char **av)
 {
 	info_t info[] = { INFO_INIT };
@@ -41,3 +44,4 @@ int main(int ac, char **av)
 	shloop(info, av);
 	return (EXIT_SUCCESS);
 }
+
