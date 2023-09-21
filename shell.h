@@ -41,7 +41,7 @@ extern char **environ;
 
 
 
-// linked lists 
+/* linked list*/ 
 typedef struct liststring
 {
 	int num;
