@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * clear_nfo - initializes info_t struct
+ * clearinf - initializes info_t struct
  * @myinfo: struct address
  */
 void clearinf(info_t *myinfo)
@@ -14,7 +14,7 @@ void clearinf(info_t *myinfo)
 }
 
 /**
- * _setinfo - initializes info_t struct
+ * _setinf - initializes info_t struct
  * @myinfo: struct address
  * @auv: argument vector
  */
@@ -42,35 +42,34 @@ void _setinf(info_t *myinfo, char **auv)
 
 		replacealias(myinfo);
 		replacevar(myinfo);
-    }
+	}
 }
 
 /**
- * _freeinf
- * - frees info_t struct fields
- * @info: struct address
- * @all: true if freeing all fields
+ * _freeinf - frees info_t struct fields
+ * @myinfo: struct address
+ * @lol: true if freeing all fields
  */
-void _freeinf(info_t *info, int all)
+void _freeinf(info_t *myinfo, int lol)
 {
-    fofree(info->argv);
-    info->argv = NULL;
-    info->path = NULL;
-    if (all)
-    {
-        if (!info->cmd_buf)
-            free(info->arg);
-        if (info->env)
-            free_list(&(info->env));
-        if (info->history)
-            free_list(&(info->history));
-        if (info->alias)
-            free_list(&(info->alias));
-        fofree(info->environ);
-        info->environ = NULL;
-        befree((void **)info->cmd_buf);
-        if (info->readfd > 2)
-            close(info->readfd);
-        _putchar(BUF_FL);
-    }
+	fofree(myinfo->argv);
+	myinfo->argv = NULL;
+	myinfo->path = NULL;
+	if (lol)
+	{
+		if (!myinfo->cmd_buf)
+			free(info->arg);
+		if (myinfo->env)
+			free_list(&(myinfo->env));
+		if (myinfo->history)
+			free_list(&(myinfo->history));
+		if (myinfo->alias)
+			free_list(&(myinfo->alias));
+		fofree(myinfo->environ);
+		myinfo->environ = NULL;
+		befree((void **)myinfo->cmd_buf);
+		if (myinfo->readfd > 2)
+		close(myinfo->readfd);
+		_putchar(BUF_FL);
+	}
 }
