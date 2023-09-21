@@ -46,7 +46,7 @@ char *str_cat(char *str1, char *str2)
  * Return: the new result
 */
 
-char *starts_with(const char *str1, const char str2)
+char *starts_with(const char *str1, const char *str2)
 {
 	while (*str2)
 		if (*str1++ != *str2++)
