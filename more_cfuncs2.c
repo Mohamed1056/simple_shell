@@ -93,7 +93,7 @@ char *Convert_Number(long int num, int a, int b)
 		x = -num;
 		sin = '-';
 	}
-	str = = b & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	str = b & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	pttr = &var[49];
 	*pttr = '\0';
 	/*while loop*/

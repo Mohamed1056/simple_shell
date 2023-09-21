@@ -12,7 +12,7 @@ void puts_in(char *ptr)
 	/*after decleration of variables*/
 	if (!ptr)
 		return;
-	while (ptr[m] != NULL)
+	while (ptr[m] != '\0')
 	{
 		_putchar(ptr[m]);
 		m++;
@@ -50,12 +50,12 @@ int _putchar(char x)
 	static char buuf[WRITE_BUF_SIZE];
 	static int n;
 	/*using static to make the the variables retain their values*/
-	if (x == BUF_FLUSH || n >= WRITE_BUF_SIZE)
+	if (x == BUF_FL || n >= WRITE_BUF_SIZE)
 	{
 		write(1, buuf, n);
 		n = 0;
 	}
-	if (x != BUF_FLUSH)
+	if (x != BUF_FL)
 		buuf(n++) = x;
 	return (1);
 }
