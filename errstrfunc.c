@@ -58,7 +58,7 @@ int put_fd(char txt, int fd)
 		write(fd, buff, poo);
 		poo = 0;
 	}
-	if (txt!= BUF_FL)
+	if (txt != BUF_FL)
 		buff[poo++] = txt;
 	return (1);
 }
