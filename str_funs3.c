@@ -51,7 +51,13 @@ char *str_chr(char *text, char letter)
 	return (NULL);
 }
 
-/***/
+/**
+ * strn_cat - function to catonize the string
+ * @str: takes the 1st input for the function
+ * @ptr: takes the 2nd input for the function
+ * @num: takes the 3rd input for the function
+ * Return: txt
+*/
 
 char *strn_cat(char *str, char *ptr, int num)
 {
