@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * mai
+ * main - entry point for the program
  * @ac: arg count
  * @av: arg vector
  * Return: 0 on success,1 if an error happened
