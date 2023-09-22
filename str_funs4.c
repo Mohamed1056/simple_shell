@@ -9,7 +9,11 @@
 
 char **str_two(char *str, char *ptr)
 {
-	int a, b, c, d, num = 0;
+	int a = 0;
+	int b = 0;
+	int c = 0;
+	int d = 0;
+	int num = 0;
 	char **txt;
 	/*after decleration of all variables*/
 	if (str == NULL || str[0] == 0)

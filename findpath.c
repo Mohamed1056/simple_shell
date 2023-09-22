@@ -52,8 +52,10 @@ int is_it_cmd(info_t *str, char *ptr)
 
 char *Path_Find(info_t *str, char *ptr1, char *ptr2)
 {
-	char *path;
-	int a, car_pos = 0;
+       
+	int a = 0;
+	 int car_pos = 0;
+	  char *path;
 	/*after decleration of the variables*/
 	if (!ptr1)
 		return (NULL);
