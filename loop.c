@@ -24,13 +24,14 @@ int findbuiltin(info_t *ptr)
 		{"alias", my_alias},
 		{NULL, NULL}};
 	/*after decleration of all variales*/
-	for (num = 0; liv[num].type; num++)
+	for (num = 0; liv[num].type; num++){
 		if (str_cmp(ptr->argv[0], liv[num].type) == 0)
 		{
 			ptr->line_count++;
 			liv2 = liv[num].func(ptr);
 			break;
 		}
+	}
 		return (liv2);
 }
 

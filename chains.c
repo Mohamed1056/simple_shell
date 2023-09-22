@@ -66,7 +66,7 @@ void check_chain(info_t *info, char *buff, size_t *pos, size_t v, size_t len)
 		}
 	}
 
-	*pos = v;
+	*pos = x;
 }
 
 /**
