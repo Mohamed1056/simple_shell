@@ -9,7 +9,7 @@
 
 int str_len(char *str)
 {
-	int x;
+	int x = 0;
 	/*after decleration of the variabels*/
 	if (!str)
 		return (0);
