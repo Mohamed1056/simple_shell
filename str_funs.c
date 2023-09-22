@@ -4,7 +4,7 @@
  * str_len - function to compute the
  * length of a string
  * @str: the string to calculate its length
- * Retrurn: x on success
+ * Return: x on success
 */
 
 int str_len(char *str)
@@ -58,6 +58,7 @@ char *starts_with(const char *str1, const char *str2)
  * str_cmp - function to check two strings
  * @str1: first input for the function
  * @str2: second input for the function
+ * Return: the output
 */
 
 int str_cmp(char *str1, char *str2)
