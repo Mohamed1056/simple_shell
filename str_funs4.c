@@ -51,7 +51,13 @@ char **str_two(char *str, char *ptr)
 	return (txt);
 }
 
-/***/
+/**
+ * str_twwo - function to doublacate
+ * a string
+ * @str: takes the input of the function
+ * @z: takes te other input
+ * Return: txt
+*/
 char **str_twwo(char *str, char z)
 {
 	int a, b, c, d, num = 0;
