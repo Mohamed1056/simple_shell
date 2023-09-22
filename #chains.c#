@@ -106,9 +106,9 @@ int replacealias(info_t *info)
  */
 int replacevar(info_t *info)
 {
-	
+	int i = 0;
 	list_t *node;
-	int i;
+
 	for (i = 0; info->argv[i]; i++)
 	{
 		if (info->argv[i][0] != '$' || !info->argv[i][1])
@@ -117,7 +117,7 @@ int replacevar(info_t *info)
 		if (!str_cmp(info->argv[i], "$?"))
 		{
 			replacestring(&(info->argv[i]),
-			str_dup(Convert_Number(info->status, 10, 0)));
+				      str_dup(Convert_Number(info->argv, 10, 0)));
 			continue;
 		}
 		if (!str_cmp(info->argv[i], "$$"))
