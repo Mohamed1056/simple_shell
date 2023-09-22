@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * puts_in - function to print string
  * @ptr: takes the input for the function
@@ -68,18 +67,18 @@ int _putchar(char x)
 
 char *str_dup(const char *text)
 {
-	int height, m;
+  int height = 0;
 	char *ptr;
 	/*after decleration of the two variables*/
-	if (!text)
+	if (text == NULL)
 		return (NULL);
-	for (; text[height] != '\0'; height++)
-		;
+	while(*text++)
+	  height++;
 	ptr = malloc(sizeof(char) * (height + 1));
-	/*checking if the memory is alocated or not*/
 	if (!ptr)
-		return (NULL);
-	for (m = 0; m < height; m++)
-		ptr[m] = text[m];
+	  return (NULL);
+	for(height++; height--;)
+	  ptr[height] = *--text;
 	return (ptr);
+
 }
