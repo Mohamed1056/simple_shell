@@ -31,12 +31,10 @@ int findbuiltin(info_t *ptr)
 			liv2 = liv[num].func(ptr);
 			break;
 		}
-<<<<<<< HEAD
+
 	}
 		return (liv2);
-=======
 	return (liv2);
->>>>>>> 3cc7c494ecd58ddb0c86249148ef8d76e848b220
 }
 
 /**
