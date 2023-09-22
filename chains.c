@@ -116,6 +116,7 @@ int replacevar(info_t *info)
 
 		if (!str_cmp(info->argv[i], "$?"))
 		{
+		  info->status = 0;
 			replacestring(&(info->argv[i]),
 			str_dup(Convert_Number(info->status, 10, 0)));
 			continue;
